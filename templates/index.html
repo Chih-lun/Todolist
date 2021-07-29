@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="background-color:#F7DBF0;">
+
+    <div class="list" style="background-color:#E8F0F2;margin-top:10%;margin-bottom:25%;margin-left:35%;margin-right:35%;text-align:center;">
+      <h1>{{ date }}</h1>
+      <ul style="padding-left:40%;">
+        {% for i in todo %}
+        <li style="padding-right:210px;">{{ i.content }} <a href="{{ url_for('delete',item=i) }}">X</a></li>
+        {% endfor %}
+      </ul>
+      <form class="my_form" action="{{ url_for('home') }}" method="post" style='padding-bottom:10px'>
+        <input type="text" name="stuff" value="">
+        <input type="submit" value="+">
+      </form>
+      {% if repeat %}
+      <h3 style="color:red;">You already have {{ repeat }}</h3>
+      {% endif %}
+    </div>
+
+
+    <footer id="footer" style="text-align:center; margin-top:8%;">
+      <a class="footer-img" href="#"><i class="fab fa-github"></i></a>
+      <p class="footer-content">© Copyright 2021 Allen</p>
+    </footer>
+  </body>
+</html>
